@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* @_Root */
+
+:root {
+    --base-color: #ffffff;
+    --light-text-color001: #ffffff;
+    --color002: #52989b;
+    --secondary-color: #77becf;
+    --drop-shadow-color: rgba(22, 22, 22, .25);
+}
+
+/* @_Main_Code */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 30px 10%;
+    transition: ease .4s;
+}
+
+header .stylized-borders {
+    position: absolute;
+    z-index: 1;
+    top: initial;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    bottom: -40px;
+    content: "";
+    background-repeat: repeat-x;
+    background-size: contain;
+    display: none;
+    background-image: url(images/stylized-borders/base-color-variant.png);
+
+    transition: ease 1s;
+}
+
+header.sticky {
+    background: var(--color002);
+    padding: 10px 10%;
+}
+
+header.sticky .stylized-borders {
+    display: block;
+}
+
+.logo {
+    font-size: 31.5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--light-text-color001);
+    transition: ease .45s;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    color: var(--light-text-color001);
+    background: transparent;
+    font-size: 14.5px;
+    font-weight: 500;
+    padding: 10px 22px;
+    margin-left: 10px;
+    border-radius: 10px;
+    transition: ease .4s;
+}
+
+.navbar a:hover {
+    color: var(--color002);
+    background: var(--base-color);
+}
+
+section {
+    padding: 80px 18%;
+}
+
+.home .stylized-borders {
+    position: absolute;
+    z-index: 1;
+    top: initial;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    bottom: 0;
+    content: "";
+    background-repeat: repeat-x;
+    background-size: contain;
+    display: block;
+    background-image: url(images/stylized-borders/white-variant.png);
+    transform: rotate(180deg);
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 102vh;
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+.home h1 {
+    font-weight: 400;
+    font-size: 16.5px;
+    color: var(--light-text-color001);
+    margin-bottom: -6px;
+}
+
+.home h2 {
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 1;
+    color: var(--light-text-color001);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.home p {
+    color: var(--light-text-color001);
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+.home-btn {
+    color: var(--light-text-color001);
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: transparent;
+    backdrop-filter:blur(10px);
+    box-shadow: 5px 5px 20px rgba(54, 54, 54, .6);
+    transition: ease .4s;
+}
+
+.home-btn:hover {
+    background: var(--color002);
+}
+
+.scroller {
+    position: absolute;
+    left: 0;
+    top: initial;
+    height: 40px;
+    bottom: -65px;
+    width: 100%;
+    background: transparent;
+}
+
+.scroller__inner {
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    background: transparent;
+}
+
+.scroller[data-animated="true"] {
+    
+    overflow: hidden;
+
+    -webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 10%,
+        white 90%,
+        transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 25s var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 1.5rem));
+    }
+}
+
+.scroller img {
+    height: 25px;
+    color: var(--color002);
+}
+
+.scroller h1 {
+    color: var(--color002);
+    font-size: 15px;
+}
+
+.container .stylized-borders {
+    position: absolute;
+    z-index: 1;
+    top: initial;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    bottom: -115px;
+    content: "";
+    background-repeat: repeat-x;
+    background-size: contain;
+    display: block;
+    background-image: url(images/stylized-borders/white-with-base-color-corners-variant.png);
+}
+
+.text h1 {
+    font-weight: 800;
+    font-size: 33px;
+    text-align: center;
+    line-height: 1.15;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    color: var(--color002);
+}
+
+.text p {
+    font-weight: 500;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: rgb(100, 100, 100);
+}
+
+.text p a {
+    font-weight: 800;
+    color: var(--color002);
+}
+
+.text p a:hover {
+    text-decoration: underline;
+}
+
+.img-slider {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 1000px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(38, 38, 38, .5);
+    padding: 50px;
+}
+
+.img-slider h1 {
+    font-weight: 800;
+    font-size: 40px;
+    margin-bottom: 12px;
+    color: var(--base-color);
+}
+
+.slider-visual-effects {
+    margin-bottom: 160px;
+    background: url(images/illustrations/001.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.photo-btn {
+    font-size: 23.5px;
+    width: 45px;
+    height: 45px;
+    color: var(--base-color);
+    border-radius: 8px;
+    align-content: center;
+    text-align: center;
+    background: var(--drop-shadow-color);
+    backdrop-filter:blur(5px);
+}
+
+.photo-details {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.like-picture {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.footer-borders {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    content: "";
+    background-repeat: repeat-x;
+    background-size: contain;
+    display: block;
+    background-image: url(images/stylized-borders/base-color-variant.png);
+    transform: rotate(180deg);
+}
+
+#contact {
+    background: var(--color002);
+}
+
+.main {
+    margin-left: -20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main .footer-logo a {
+    font-size: 50px;
+    margin-right: 50px;
+    color: var(--base-color);
+}
+
+.main .footer-logo a:hover {
+    color: var(--secondary-color);
+}
+
+.list {
+    width: 16.5%;
+}
+
+.list h2 {
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--base-color);
+    margin-bottom: 15px;
+}
+
+.list ul li:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+.list ul li a {
+    font-family: "Courier New", sans-serif;
+    letter-spacing: 1.15px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--base-color);
+    display: block;
+}
+
+.list ul li a:hover {
+    text-decoration: underline;
+}
+
+.socials a {
+    font-size: 26px;
+    background: transparent;
+    color: var(--base-color);
+    display: inline-flex;
+    align-items: center;
+}
+
+.socials :not(:last-child) {
+    margin-right: 8px;
+}
+
+.socials a:hover {
+    color: var(--secondary-color);
+}
+
+/* @_Media_MAX_MIN */
+
+@media (max-width: 1400px) {
+    header {
+        padding: 17px 5%;
+        transition: .2s;
+    }
+
+    header.sticky {
+        padding: 10px 5%;
+        transition: .2s;
+    }
+}
